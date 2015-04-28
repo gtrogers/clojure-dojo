@@ -1,6 +1,7 @@
-(ns ebooks.core)
+(ns ebooks.core
+  (:require [ebooks.markov :as m]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def riptide (slurp "resources/riptide.txt"))
+(def thriftshop (slurp "resources/thriftshop.txt"))
+
+(m/generate (str riptide " " thriftshop) 100)
